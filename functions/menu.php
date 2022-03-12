@@ -5,7 +5,6 @@ register_nav_menus(
 		'util-nav'		=> __( 'The Utility Menu', 'jointswp' ),		// Utility nav in header
 		'main-nav'		=> __( 'The Main Menu', 'jointswp' ),		// Main nav in header
 		'offcanvas-nav'	=> __( 'The Off-Canvas Menu', 'jointswp' ),	// Off-Canvas nav
-		'footer-tours'	=> __( 'Footer Tours', 'jointswp' ),		// Secondary nav in footer		
 		'footer-links'	=> __( 'Footer Links', 'jointswp' ),		// Secondary nav in footer
 		'social-links'	=> __( 'Social Links', 'jointswp' ),		// Secondary nav in footer		
 		'review-links'	=> __( 'Review Links', 'jointswp' )		    // Secondary nav in footer		
@@ -32,7 +31,7 @@ function joints_top_nav() {
 		'container'			=> false,						// Remove nav container
 		'menu_id'			=> 'main-nav',					// Adding custom nav id
 		'menu_class'		=> 'medium-horizontal menu',	// Adding custom nav class
-		'items_wrap'		=> '<ul id="%1$s" class="%2$s" data-responsive-menu="accordion medium-dropdown" data-submenu-toggle="true" data-hover-delay="0" data-closing-time="0">%3$s</ul>',
+		'items_wrap'		=> '<ul id="%1$s" class="%2$s" data-responsive-menu="accordion medium-dropdown" data-submenu-toggle="true" data-hover-delay="0" data-closing-time="0" data-smooth-scroll data-offset="500">%3$s</ul>',
 		'theme_location'	=> 'main-nav',					// Where it's located in the theme
 		'depth'				=> 5,							// Limit the depth of the nav
 		'fallback_cb'		=> false,						// Fallback function (see below)
@@ -68,18 +67,6 @@ class Off_Canvas_Menu_Walker extends Walker_Nav_Menu {
 		$output .= "\n$indent<ul class=\"vertical menu\">\n";
 	}
 }
-
-// The Footer Tour Menu
-function joints_footer_tours_links() {
-	wp_nav_menu(array(
-		'container'			=> 'false',				// Remove nav container
-		'menu_id'			=> 'footer-tours',		// Adding custom nav id
-		'menu_class'		=> 'menu',				// Adding custom nav class
-		'theme_location'	=> 'footer-tours',		// Where it's located in the theme
-		'depth'				=> 0,					// Limit the depth of the nav
-		'fallback_cb'		=> ''					// Fallback function
-	));
-} /* End Footer Menu */
 
 // The Footer Menu
 function joints_footer_links() {

@@ -5,6 +5,120 @@ Stylesheet: Global Stylesheet
 *************************************************/
 
 /*********************
+TYPOGRAPHY
+*********************/
+
+.font-display {
+	font-family: $font-display;
+}
+
+/*********************
+REUSED STYLES
+*********************/
+.has-bg {
+	position: relative;
+	.bg {
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		
+	&.auto {
+		background-size: auto;
+	}
+		
+	}
+}
+
+.relative {
+	position: relative;
+}
+
+/*
+.break {
+	span {
+		display: inline-block;
+		height: .7rem;
+		width: 1rem;
+		background-color: $brand-pink;
+		margin: 0 .2rem;
+	}
+
+}
+*/
+
+.white {
+	color: $white;
+}
+
+.white-bg {
+	background-color: $white;
+}
+
+.mauve-bg {
+	background-color: $brand-mauve;
+	h2,
+	p,
+	a {
+		color: $brand-pink;
+	}
+}
+
+.highlight {
+	display: inline-block;
+	position: relative;
+&:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: -24px;
+    right: -24px;
+    bottom: -10px;
+    transform: skew(-10deg);
+}
+
+&.white-highlight:before {
+	background-color: $white;
+}
+
+&.pink-highlight:before {
+	background-color: $brand-pink;
+}
+
+}
+
+.pink-bg {
+	background-color: $brand-pink;
+}
+
+.arrow-link {
+	display: inline-flex;
+	align-items: center;
+	font-size: rem-calc(22);
+	font-weight: bold;
+	span {
+		display: inline-block;
+		margin-right: 1rem;
+	}
+	svg {
+		transition: .3s ease;
+	}
+	
+&:hover {
+	svg {
+		transform: translateX(16px);
+	}
+}
+	
+}
+
+/*********************
 POSTS & CONTENT STYLES
 *********************/
 .page-title {
@@ -407,13 +521,6 @@ SIDEBARS & ASIDES
 	ul {
 		margin: 0;
 	}
-}
-/*********************
-FOOTER STYLES
-*********************/
-.footer {
-	clear: both;
-	margin-top: 1em;
 }
 	
 /*********************

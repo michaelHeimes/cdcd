@@ -1,0 +1,25 @@
+footer.footer {
+	padding-top: 4rem;
+	padding-bottom: .5rem;
+	.inner-footer {
+		justify-content: space-between;
+		#footer-links {
+			justify-content: flex-end;
+			> li > a {
+			    font-weight: bold;
+			    font-size: rem-calc(18);
+			}
+			ul.sub-menu {
+				padding-left: 0;
+				margin-left: 0;
+				list-style: none;
+				li a {
+					font-size: rem-calc(15);
+				}
+			}
+		}
+		.source-org {
+			padding-top: 3rem;
+		}
+	}
+}

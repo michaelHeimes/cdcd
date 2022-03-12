@@ -16,18 +16,9 @@
 				<li><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></li>
 			</ul>
 			
-			<ul class="menu hide-for-tablet">
-				<li class="logo mobile"><a href="<?php echo home_url(); ?>">
-					<?php 
-					$image = get_field('header_logo', 'option');
-					if( !empty( $image ) ): ?>
-					    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-					<?php endif; ?>
-				</a></li>
-			</ul>
-			
-			<ul class="menu show-for-xlarge">
-				<li class="logo desktop"><a href="<?php echo home_url(); ?>">
+			<ul class="menu">
+				<li class="logo"><a href="<?php echo home_url(); ?>">
+					Logo here
 					<?php 
 					$image = get_field('header_logo', 'option');
 					if( !empty( $image ) ): ?>

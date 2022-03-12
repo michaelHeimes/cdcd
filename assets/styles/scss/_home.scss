@@ -1,0 +1,30 @@
+.home {
+	.banner {
+		padding-top: 12rem;
+		padding-bottom: 12rem;
+		h1 {
+			margin-bottom: 2rem;
+		}
+	}
+	.image-collage {
+		padding-top: 0rem;
+		padding-bottom: 7rem;
+		.bg {
+		    justify-content: space-evenly;
+		    z-index: 1;
+		    font-size: 100px;
+		    >div {
+			    color: $black;
+			    text-shadow: 3px 3px 0px $brand-pink;
+		    }
+		}
+	}
+	.cta-boxes {
+		padding: 7rem 0 7rem;
+		padding-bottom: 7rem;
+		.inner {
+			border: 10px solid #845A6D;
+			padding: 2rem;
+		}
+	}
+}
