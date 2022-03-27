@@ -1,20 +1,15 @@
 header.header {
 	z-index: 99999;
-	transition: transform .5s ease;
+	transition: transform .3s ease;
 	
 	.top-bar-wrap {
 		background-color: $topbar-background;
+		transition: background-color .3s ease;
 		.top-bar {
 			background-color: transparent;
 		}
 	}
-	
-&.is-stuck {
-	.top-bar-wrap {
-		background-color: $brand-mauve;
-	}
-}
-	
+		
 	#top-bar-menu {
 		padding-top: .2rem;
 		padding-bottom: .2rem;
@@ -61,7 +56,7 @@ header.header {
 					}
 					
 				&:hover {
-					text-decoration: underline;
+
 				}
 					
 				}
@@ -70,24 +65,30 @@ header.header {
 				margin-top: -.4rem;
 				margin-bottom: 0;
 			
-				a {
-					padding-right: 2.28rem;
+				> a {
+					padding-right: 1.28rem;
+					position: relative;
 					
 					&:after {
-						right: 12px;
+						content: '';
+						right: 4px;
 						width: 10px;
 						height: 5px;
 						border: 0;
 						background-size: contain;
 					    background-position: center;
 					    background-repeat: no-repeat;						
-						background-image: url(../images/chev-down-white.svg);
+						background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9.965' height='5.888' viewBox='0 0 9.965 5.888'%3E%3Cpath id='Path_9856' data-name='Path 9856' d='M4.982,0,4.077.906,7.506,4.335l.619.647h0l-.619.647L4.077,9.059l.906.906L9.965,4.982Z' transform='translate(9.965 -4.077) rotate(90)' fill='%239d6027'/%3E%3C/svg%3E%0A");
+						transition: all .3s ease;
 					}
 					
 				}
 				
 				ul.submenu {
+					padding-top: .4rem;
+					padding-bottom: .4rem;
 					li {
+						padding: .2rem 1rem;
 						a {
 
 							
@@ -143,4 +144,37 @@ header.header {
 	
 	}
 	
+&.is-stuck {
+	.top-bar-wrap {
+		background-color: $brand-purple;
+		#top-bar-menu #main-nav>li > a {
+			color: $white;
+		}
+		#top-bar-menu #main-nav>li.menu-item-has-children a {
+			&:after {
+				background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9.965' height='5.888' viewBox='0 0 9.965 5.888'%3E%3Cpath id='Path_9856' data-name='Path 9856' d='M4.982,0,4.077.906,7.506,4.335l.619.647h0l-.619.647L4.077,9.059l.906.906L9.965,4.982Z' transform='translate(9.965 -4.077) rotate(90)' fill='%23fff'/%3E%3C/svg%3E%0A");				
+			}
+		}
+	}
+}
+	
+}
+
+ul#offcanvas-nav {
+	padding-top: .7rem;
+	li {
+		a {
+			padding: .7rem;
+			color: $brand-gold;
+			font-weight: bold;
+			font-size: rem-calc(20);
+		}
+		ul.submenu {
+			li {
+				a {
+					padding-left: 1.4rem;
+				}
+			}
+		}
+	}
 }

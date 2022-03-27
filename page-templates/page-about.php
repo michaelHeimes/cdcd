@@ -32,13 +32,14 @@ get_header(); ?>
 					<div class="cell">
 						<h2>Our Process</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-						<ul>
-							<li>Step 1: Lorem ipsum dolor sit amet</li>
-							<li>Step 2: Lorem ipsum dolor sit amet</li>
-							<li>Step 3: Lorem ipsum dolor sit amet</li>
-							<li>Step 4: Lorem ipsum dolor sit amet</li>
-							<li>Step 5: Lorem ipsum dolor sit amet</li>
+						<ul class="how-it-works">
+							<li><b>Step 1:</b> Provide your own antique or vintage chair, Rocker, Sofa or settee frame. If you don’t already have a piece for reupholstery, Carla will source one for you, for an additional fee.</li>
+							<li><b>Step 2:</b> Collab with CDCD in deciding which fabric or textile images your heart snd home happiest. Price will be determined and shared before committing to the project. You will pay a standard cost  for labor and design services, and fabric price varies based on textiles chosen.</li>
+							<li><b>Step 3:</b> Our team will reupholster the piece.</li>
+							<li><b>Step 4:</b> Take home a beautiful piece of responsibly-sourced furniture you can love for years to come.</li>
 						</ul>
+						<small>Note: we are located just outside of Philadelphia and work predominantly with customers in this region. However, if you would like to work with Carla and can arrange shipping, we are happy to do that.
+</small>
 					</div>
 				</div>
 			</section>

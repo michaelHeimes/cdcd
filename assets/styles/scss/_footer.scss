@@ -1,13 +1,28 @@
 footer.footer {
 	padding-top: 4rem;
 	padding-bottom: .5rem;
+	border-bottom: 1rem solid $brand-mauve;
 	.inner-footer {
 		justify-content: space-between;
+		.logo {
+			margin-bottom: 2rem;
+		}
 		#footer-links {
 			justify-content: flex-end;
-			> li > a {
-			    font-weight: bold;
-			    font-size: rem-calc(18);
+			a {
+				margin-bottom: .6rem;
+			}
+			> li {
+				flex: 1 1 100%;
+				margin-bottom: 1.5rem;
+				@include breakpoint(medium) {
+					margin-left: 2rem;					
+					flex: 0 0 auto;
+				}
+				> a {
+				    font-weight: bold;
+				    font-size: rem-calc(18);
+				}
 			}
 			ul.sub-menu {
 				padding-left: 0;

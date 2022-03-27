@@ -12,9 +12,94 @@ TYPOGRAPHY
 	font-family: $font-display;
 }
 
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+	letter-spacing: -.07em;
+}
+
+h2 {
+	margin-top: .5rem;
+}
+h3:not(:first-of-type) {
+	margin-top: 2rem;
+}
+
+p {
+	@include breakpoint(medium) {
+		font-size: rem-calc(20);
+	}
+}
+
 /*********************
 REUSED STYLES
 *********************/
+.banner{
+	padding-top: 4rem;
+	padding-bottom: 4.2rem;
+	h1 {
+		color: $brand-gold;
+	}
+}
+
+body:not(.home) {
+	main {
+		margin-top: 4.5rem;
+		margin-bottom: 5rem;
+		@include breakpoint(medium) {
+			margin-top: 5rem;
+			margin-bottom: 7rem;	
+		}
+		h2 {
+			position: relative;
+			display: inline-flex;
+			flex-direction: column;
+			
+		&:after {
+			content: '';
+			margin-top: 5px;
+			width: .6em;
+			height: 5px;
+			background-color: $brand-mauve;
+		}
+				
+		}
+		
+		section {
+			margin-top: 3rem;
+			margin-bottom: 2rem;
+			@include breakpoint(medium) {
+				margin-top: 4rem;
+				margin-bottom: 3rem;			
+			}
+		}
+		
+	}
+}
+
+ul.how-it-works {
+	clear: both;
+	padding: 0;
+    margin: 0;
+    margin: 2rem -2rem;
+	li {
+		width: 100%;
+		max-width: 900px;
+		font-size: rem-calc(20);
+		font-family: $header-font-family;
+		list-style: none;
+		margin: 1rem  auto;
+		padding: 0 2rem;
+		b {
+			font-size: rem-calc(32);
+			color: $brand-gold;
+		}
+	}
+}
+
 .has-bg {
 	position: relative;
 	.bg {
@@ -60,13 +145,21 @@ REUSED STYLES
 	background-color: $white;
 }
 
-.mauve-bg {
-	background-color: $brand-mauve;
+.mauve-bg,
+.purple-bg {
 	h2,
 	p,
 	a {
 		color: $brand-pink;
 	}
+}
+
+.purple-bg {
+	background-color: $brand-purple;
+}
+
+.mauve-bg {
+	background-color: $brand-mauve;
 }
 
 .highlight {
@@ -76,10 +169,10 @@ REUSED STYLES
     content: "";
     position: absolute;
     z-index: -1;
-    top: 0;
+    top: -8px;
     left: -24px;
     right: -24px;
-    bottom: -10px;
+    bottom: -14px;
     transform: skew(-10deg);
 }
 
@@ -146,11 +239,13 @@ POSTS & CONTENT STYLES
 
 	.alignleft, img.alignleft { 
 		margin-right: 1.5em; 
+		margin-bottom: 1.5rem;
 		display: inline; 
 		float: left; 
 	}
 	.alignright, img.alignright { 
 		margin-left: 1.5em; 
+		margin-bottom: 1.5rem;
 		display: inline; 
 		float: right; 
 	}
