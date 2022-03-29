@@ -37,6 +37,9 @@ require_once(get_template_directory().'/functions/acf-json.php');
 // ACF json
 require_once(get_template_directory().'/functions/acf-options.php');
 
+// Custom Image Sizes
+require_once(get_template_directory().'/functions/image-sizes.php');
+
 // ACF Block
 //require_once(get_template_directory().'/functions/acf-blocks.php');
 

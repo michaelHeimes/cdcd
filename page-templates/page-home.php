@@ -12,16 +12,17 @@ get_header(); ?>
 		<div class="inner-content">
 	
 			<div class="banner home-banner has-bg text-center">
-				<div class="bg auto show-for-tablet" style="background-image: url('/wp-content/uploads/2022/03/home-banner.jpg')"></div>
+				<?php $banner_img = get_field('banner_image');?>
+				<div class="bg auto show-for-tablet" style="background-image: url('<?php echo esc_url($banner_img['url']); ?>')"></div>
 				<div class="grid-container">
 					<div class="grid-x grid-padding-x">
-						<div class="relative cell">
-							<h1><span class="highlight pink-highlight">Co-design by Carla DiOrio</span></h1>
-							<img class="hide-for-tablet" src="/wp-content/uploads/2022/03/home-banner.jpg">
+						<div class="relative cell text-center">
+							<h1><span class="highlight pink-highlight"><?php the_field('banner_heading');?></span></h1>
+							<img class="hide-for-tablet" src="<?php echo esc_url($banner_img['url']); ?>" alt="<?php echo esc_attr($banner_img['alt']); ?>" />
 							<div class="break break-5"><span></span><span></span><span></span><span></span><span></span></div>
 							<div class="tagline has-bg">
 		<!-- 						<div class="bg contain hide-for-tablet" style="background-image: url('/wp-content/uploads/2022/03/home-banner.jpg')"></div> -->
-								<h2 class="relative">Collaborative Heirloom Seating.</h2>
+								<h2 class="relative text-center"><?php the_field('banner_sub-heading');?></h2>
 							</div>
 						</div>
 					</div>
@@ -35,56 +36,86 @@ get_header(); ?>
 					<div class="grid-container">
 						<div class="grid-x grid-padding-x">
 						<div class="cell has-bg">
-							<div class="grid-x grid-padding-x small-up-2 medium-up-3 align-center">
-								<div class="cell grid-x align-center align-middle"><img src="/wp-content/uploads/2022/03/IMG_0292.jpg"></div>
-								<div class="cell grid-x align-center align-middle"><img src="/wp-content/uploads/2022/03/IMG_2228.jpg"></div>
-								<div class="cell grid-x align-center align-middle"><img src="/wp-content/uploads/2022/03/IMG_9755.jpg"></div>
-								<div class="cell grid-x align-center align-middle"><img src="/wp-content/uploads/2022/03/IMG_4522.jpg"></div>
-								<div class="cell grid-x align-center align-middle"><img src="/wp-content/uploads/2022/03/IMG_9854.jpg"></div>
-								<div class="cell grid-x align-center align-middle"><img src="/wp-content/uploads/2022/03/IMG_9755.jpg"></div>
-							</div>
+							<?php 
+							$images = get_field('collage_images');
+							if( $images ): ?>
+								<div class="grid-x grid-padding-x small-up-2 medium-up-3 align-center">
+									<?php foreach( $images as $image ): ?>
+										<div class="cell grid-x align-center align-middle">
+											<img src="<?php echo esc_url($image['sizes']['collage-square']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+										</div>
+									<?php endforeach; ?>
+								</div>
+							<?php endif; ?>
+
+							<?php if( have_rows('overlapping_words') ):?>
 							<div class="bg font-display grid-x flex-dir-column text-center">
-								<div>Exquisite.</div>
-								<div>Striking.</div>
-								<div>Street.</div>
-								<div>Posh.</div>
+								<?php while ( have_rows('overlapping_words') ) : the_row();?>	
+								<div><?php the_sub_field('word');?></div>
+								<?php endwhile;?>
 							</div>
+							<?php endif;?>
 						</div>
 					</div>
 				</section>	
-	
+				
 				<section class="cta-boxes has-bg">
-					<div class="bg" style="background-image: url('https://images.squarespace-cdn.com/content/v1/5b5c7572620b85a43980fbb9/1595290431344-SUOQAO79JPY1SUSLI7JJ/image-asset.jpeg')"></div>
+					<div class="bg" style="background-image: url('<?php the_field('cta_background_image');?>')"></div>
 					<div class="grid-container">
-						<div class="grid-x grid-padding-x">			
-							<section class="services cell small-12 tablet-6">
-								<div class="inner white-bg">
-									<h2>Our Services</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-									<a class="arrow-link" href="/services">
-										<span>Learn More</span>
-										<svg id="Symbol_82" data-name="Symbol 82" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-											<path id="Path_10" data-name="Path 10" d="M8,0,6.545,1.455l5.506,5.506H0V9.039H12.052L6.545,14.545,8,16l8-8Z" fill="#9d6027"></path>
-										</svg>										
-									</a>
-								</div>
-							</section>
-		
-							<section class="about cell small-12 tablet-6">
-								<div class="inner white-bg">
-									<h2>About CDCD</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-									<a class="arrow-link" href="/about">
-										<span>Learn More</span>
-										<svg id="Symbol_82" data-name="Symbol 82" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-											<path id="Path_10" data-name="Path 10" d="M8,0,6.545,1.455l5.506,5.506H0V9.039H12.052L6.545,14.545,8,16l8-8Z" fill="#9d6027"></path>
-										</svg>	
-									</a>
-								</div>
-							</section>
+						<div class="grid-x grid-padding-x">		
+							<?php if( have_rows('cta_left_box') ):?>
+								<?php while ( have_rows('cta_left_box') ) : the_row();?>	
+								<section class="cell small-12 tablet-6 grid-x">
+									<div class="inner white-bg">
+										<h2><?php the_sub_field('heading');?></h2>
+										<p><?php the_sub_field('text');?></p>
+										<?php 
+										$link = get_sub_field('link');
+										if( $link ): 
+											$link_url = $link['url'];
+											$link_title = $link['title'];
+											$link_target = $link['target'] ? $link['target'] : '_self';
+											?>
+											<a class="arrow-link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+												<span><?php echo esc_html( $link_title ); ?></span>
+												<svg id="Symbol_82" data-name="Symbol 82" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+													<path id="Path_10" data-name="Path 10" d="M8,0,6.545,1.455l5.506,5.506H0V9.039H12.052L6.545,14.545,8,16l8-8Z" fill="#9d6027"></path>
+												</svg>													
+											</a>
+										<?php endif; ?>
+									</div>
+								</section>
+								<?php endwhile;?>
+							<?php endif;?>	
+							<?php if( have_rows('cta_right_box') ):?>
+								<?php while ( have_rows('cta_right_box') ) : the_row();?>	
+								<section class="cell small-12 tablet-6 grid-x">
+									<div class="inner white-bg">
+										<h2><?php the_sub_field('heading');?></h2>
+										<p><?php the_sub_field('text');?></p>
+										<?php 
+										$link = get_sub_field('link');
+										if( $link ): 
+											$link_url = $link['url'];
+											$link_title = $link['title'];
+											$link_target = $link['target'] ? $link['target'] : '_self';
+											?>
+											<a class="arrow-link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+												<span><?php echo esc_html( $link_title ); ?></span>
+												<svg id="Symbol_82" data-name="Symbol 82" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+													<path id="Path_10" data-name="Path 10" d="M8,0,6.545,1.455l5.506,5.506H0V9.039H12.052L6.545,14.545,8,16l8-8Z" fill="#9d6027"></path>
+												</svg>													
+											</a>
+										<?php endif; ?>
+									</div>
+								</section>
+								<?php endwhile;?>
+							<?php endif;?>	
 						</div>
 					</div>
 				</section>
+	
+
 			    				
 			</main> <!-- end #main -->
 		    
