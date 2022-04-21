@@ -5,9 +5,7 @@ register_nav_menus(
 		'util-nav'		=> __( 'The Utility Menu', 'jointswp' ),		// Utility nav in header
 		'main-nav'		=> __( 'The Main Menu', 'jointswp' ),		// Main nav in header
 		'offcanvas-nav'	=> __( 'The Off-Canvas Menu', 'jointswp' ),	// Off-Canvas nav
-		'footer-links'	=> __( 'Footer Links', 'jointswp' ),		// Secondary nav in footer
-		'social-links'	=> __( 'Social Links', 'jointswp' ),		// Secondary nav in footer		
-		'review-links'	=> __( 'Review Links', 'jointswp' )		    // Secondary nav in footer		
+		'footer-links'	=> __( 'Footer Links', 'jointswp' ),		// Secondary nav in footer	
 	)
 );
 
@@ -79,30 +77,6 @@ function joints_footer_links() {
 		'fallback_cb'		=> ''					// Fallback function
 	));
 } /* End Footer Menu */
-
-// The Social Links Menu
-function joints_social_links() {
-	wp_nav_menu(array(
-		'container'			=> 'false',				// Remove nav container
-		'menu_id'			=> 'social-links',		// Adding custom nav id
-		'menu_class'		=> 'menu',				// Adding custom nav class
-		'theme_location'	=> 'social-links',		// Where it's located in the theme
-		'depth'				=> 0,					// Limit the depth of the nav
-		'fallback_cb'		=> ''					// Fallback function
-	));
-} /* End Social Links Menu */
-
-// The Review Links Menu
-function joints_review_links() {
-	wp_nav_menu(array(
-		'container'			=> 'false',				// Remove nav container
-		'menu_id'			=> 'review-links',		// Adding custom nav id
-		'menu_class'		=> 'menu',				// Adding custom nav class
-		'theme_location'	=> 'review-links',		// Where it's located in the theme
-		'depth'				=> 0,					// Limit the depth of the nav
-		'fallback_cb'		=> ''					// Fallback function
-	));
-} /* End Social Links Menu */
 
 // Header Fallback Menu
 function joints_main_nav_fallback() {

@@ -13,6 +13,24 @@ TYPOGRAPHY
 }
 
 h1,
+h2,
+h3,
+h4,
+h5,
+p {
+	overflow-wrap: normal;
+}
+
+.entry-content {
+	img {
+		@include breakpoint(medium down) {
+			float: none !important;
+			margin-left: 0 !important;
+		}
+	}
+}
+
+h1,
 .h1,
 h2,
 .h2,
@@ -30,6 +48,9 @@ h3:not(:first-of-type) {
 
 p {
 	@include breakpoint(medium) {
+		font-size: rem-calc(18);
+	}
+	@include breakpoint(large) {
 		font-size: rem-calc(20);
 	}
 }
@@ -41,7 +62,7 @@ REUSED STYLES
 	padding-top: 4rem;
 	padding-bottom: 4.2rem;
 	h1 {
-		color: $brand-gold;
+		color: $brand-red;
 	}
 }
 
@@ -63,7 +84,7 @@ body:not(.home) {
 			margin-top: 5px;
 			width: .6em;
 			height: 5px;
-			background-color: $brand-mauve;
+			background-color: $brand-pink;
 		}
 				
 		}
@@ -95,7 +116,7 @@ ul.how-it-works {
 		padding: 0 2rem;
 		b {
 			font-size: rem-calc(32);
-			color: $brand-gold;
+			color: $brand-red;
 		}
 	}
 }
@@ -159,7 +180,7 @@ ul.how-it-works {
 }
 
 .mauve-bg {
-	background-color: $brand-mauve;
+	background-color: $brand-pink;
 }
 
 .highlight {

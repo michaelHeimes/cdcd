@@ -11,12 +11,18 @@ get_header(); ?>
 	 
 		 <div class="inner-content">
 	 
-			 <div class="banner home-banner has-bg text-center">
-			 <div class="bg" style="background-image: url('<?php the_field('banner_background_image'); ?>')"></div>
-				 <div class="relative">
-					 <h1><span class="highlight pink-highlight"><?php the_field('banner_heading');?></span></h1>
-				 </div>
-			 </div>	
+			<div class="banner home-banner has-bg text-center">
+			<div class="bg" style="background-image: url('<?php the_field('banner_background_image'); ?>')"></div>
+				<div class="relative">
+					<div class="grid-container">
+					    <div class="grid-x grid-padding-x">
+							<div class="cell small-12">
+								<h1><span class="highlight pink-highlight"><?php the_field('banner_heading');?></span></h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
 	 
 			 <main class="main" role="main">
 				 <?php if( have_rows('content_rows') ):?>

@@ -1,14 +1,25 @@
 .home {
 	.banner {
-		padding-top: 12rem;
-		padding-bottom: 12rem;
+		padding-top: 5rem;
+		padding-bottom: 0rem;		
+		@include breakpoint(tablet) {
+			padding-top: 12rem;
+			padding-bottom: 12rem;
+		}
 		h1 {
 			margin-bottom: 2rem;
-			color: $brand-gold;
+			color: $brand-red;
 		}
 		@include breakpoint(tablet) {
 			h2 {
 				color: $white;
+			}
+		}
+		.logo-wrap {
+			max-width: 500px;
+			margin: auto;
+			@include breakpoint(tablet down) {
+				margin-bottom: 2rem;
 			}
 		}
 	}

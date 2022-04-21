@@ -222,6 +222,11 @@
                 "param": "page_template",
                 "operator": "!=",
                 "value": "page-templates\/page-contact.php"
+            },
+            {
+                "param": "page_template",
+                "operator": "!=",
+                "value": "page-templates\/page-home.php"
             }
         ]
     ],
@@ -236,5 +241,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1648433060
+    "modified": 1650544454
 }
